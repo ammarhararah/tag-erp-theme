@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<head>
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#7575ff">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#7575ff">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#7575ff">	<meta charset="utf-8">
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,
+		maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="white">
+	<meta name="mobile-web-app-capable" content="yes">
+	<title>Frappe Desk</title>
+
+	<!-- fontawesome -->
+	<script src="https://kit.fontawesome.com/a5d64e21cd.js" crossorigin="anonymous"></script>
+
+	<link rel="shortcut icon"
+		href="{{ favicon or "/assets/frappe/images/favicon.png" }}" type="image/x-icon">
+	<link rel="icon"
+		href="{{ favicon or "/assets/frappe/images/favicon.png" }}" type="image/x-icon">
+	{% for include in include_css -%}
+	<link type="text/css" rel="stylesheet" href="{{ include }}?ver={{ build_version }}">
+	{%- endfor -%}
+</head>
+<body>
+	<div class="centered splash" style="width: 100px; height: 100px;">
+        <img src="{{ splash_image or "/assets/frappe/images/frappe-framework-logo.png" }}">
+    </div>
+	<div class="main-section custom-main-section">
+		<div id="custom-left-menu" class="custom-left-sidemenu custom-left-menu-hide">
+			<div class="logo">
+				<img src="logo.png" alt="logo"/>
+			</div>
+			<div class="custom-nav-ul">
+				<ul class="nav custom-nav">
+					<li>
+						<a href="#" class="custom-nav-link">
+							<span class="icon-Icon-material-monetization-on"></span><br>
+							Accounting
+						</a>
+					</li>
+					<li>
+						<a href="#" class="custom-nav-link">
+							<span class="icon-Icon-awesome-building"></span><br>
+							Assets
+						</a>
+					</li>
+					<li>
+						<a href="#" class="custom-nav-link">
+							<span class="icon-Icon-ionic-md-wallet"></span><br>
+							Buying
+						</a>
+					</li>
+					<li>
+						<a href="#" class="custom-nav-link">
+							<span class="icon-Icon-material-confirmation-number"></span><br>
+							CRM
+						</a>
+					</li>
+					<li>
+						<a href="#" class="custom-nav-link">
+							<span class="icon-Icon-awesome-user-friends"></span><br>
+							HR
+						</a>
+					</li>
+					<li>
+						<a href="#" class="custom-nav-link">
+							<span class="icon-Icon-awesome-money-bill"></span><br>
+							Loan management
+						</a>
+					</li>
+					<li>
+						<a href="#" class="custom-nav-link">
+							<span class="icon-Icon-open-project"></span><br>
+							Projects
+						</a>
+					</li>
+					<li>
+						<a href="#" class="custom-nav-link">
+							<span class="icon-Icon-ionic-md-star-outline"></span><br>
+							Quality
+						</a>
+					</li>
+					<li>
+						<a href="#" class="custom-nav-link">
+							<span class="icon-Icon-open-browser"></span><br>
+							Selling
+						</a>
+					</li>
+					<li>
+						<a href="#" class="custom-nav-link">
+							<span class="icon-Icon-awesome-dropbox"></span><br>
+							Stock
+						</a>
+					</li>
+					<li>
+						<a href="#" class="custom-nav-link">
+							<span class="icon-Icon-ionic-ios-help-buoy"></span><br>
+							Support
+						</a>
+					</li>
+					<li>
+						<a href="#" class="custom-nav-link">
+							<span class="icon-Icon-open-browser"></span><br>
+							Website
+						</a>
+					</li>
+					<li>
+						<a href="#" class="custom-nav-link">
+							<span class="icon-Icon-open-account-logout"></span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="custom-mid-section">
+			<header></header>
+			<div id="body_div"></div>
+			<footer></footer>
+		</div>
+		<div id="custom-right-menu" class="custom-right-sidemenu custom-right-menu-hide">
+			<div class="top-section">
+				<ul class="nav navbar-nav navbar-right custom-right-navbar">
+
+					<!-- frappe.chat -->
+					<!-- "placeholder, to display or not to display." -->
+					<li class="frappe-chat-dropdown custom-chat"></li>
+					<!-- end frappe.chat -->
+		
+					<li class="dropdown dropdown-notifications dropdown-mobile">
+						<span class="notifications-indicator"><i class="fa fa-circle"></i></span>
+						<a
+							class="dropdown-toggle notifications-icon custom-notification-icon"
+							data-toggle="dropdown"
+							aria-haspopup="true"
+							aria-expanded="true"
+							href="#"
+							onclick="return false;">
+							<span><i class="fa fa-bell" aria-hidden="true"></i><span class="min-text">Notifications</span></span>
+						</a>
+						<ul
+							class="dropdown-menu notifications-list custom-dropdown-menu"
+							role="menu">
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="user-info">
+				<div class="user-img">
+					<div class="user-img-wrapper">
+						<img src="img/user-img.png" alt="user-img">
+					</div>
+				</div>
+				<p class="username">User Name</p>
+				<p class="user-position">SCO</p>
+				<div class="user-task-section">
+					<a href="#" class="custom-user-item">
+						<span class="icon-Group-223"><span class="path1"></span><span class="path2"></span></span>
+						<p>Notes</p>
+					</a>
+					<a href="#" class="custom-user-item">
+						<span class="icon-Group-83"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span></span>
+						<p>To do</p>
+					</a>
+					<a href="#" class="custom-user-item">
+						<span class="icon-Group-82"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+						<p>Task</p>
+					</a>
+				</div>
+			</div>
+			<div class="settings-section">
+				<p>Settings</p>
+				<ul class="nav">
+					<li><a href="#">My profile </a></li>
+					<li><a href="#">My Setting</a></li>
+					<li><a href="#">Session Defaults</a></li>
+					<li><a href="#">Reload</a></li>
+					<li><a href="#">View website</a></li>
+					<li><a href="#">Toggle full width</a></li>
+					<li><a href="#">Background Jobs</a></li>
+				</ul>
+			</div>
+			<div class="help">
+				<a href="#" data-toggle="tooltip" data-placement="bottom" title="Help">
+					<span class="icon-Path-9"></span>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="/assets/frappe/js/lib/jquery/jquery.min.js"></script>
+
+	<script type="text/javascript">
+	window._version_number = "{{ build_version }}";
+	// browser support
+	window.app = true;
+	window.dev_server = {{ dev_server }};
+
+	if(!window.frappe) window.frappe = {};
+
+	frappe.boot = {{ boot }};
+
+	frappe.csrf_token = "{{ csrf_token }}";
+
+	</script>
+
+	{% for include in include_js %}
+	<script type="text/javascript" src="{{ include }}?ver={{ build_version }}"></script>
+	{% endfor %}
+    {% include "templates/includes/app_analytics/google_analytics.html" %}
+    {% include "templates/includes/app_analytics/mixpanel_analytics.html" %}
+
+	{% for sound in (sounds or []) %}
+	<audio preload="auto" id="sound-{{ sound.name }}" volume={{ sound.volume or 1 }}>
+		<source src="{{ sound.src }}"></source>
+	</audio>
+	{% endfor %}
+</body>

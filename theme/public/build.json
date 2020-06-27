@@ -1,0 +1,8 @@
+{
+  "js/theme.min.js" :[
+  "templates/list_sidebar.html",
+  "public/js/ui/navbar.html",
+  "public/js/toolbar.js",
+  "public/js/pageview.js"
+]
+}
