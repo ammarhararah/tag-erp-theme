@@ -3,6 +3,8 @@ frappe.after_ajax(function() {
 
   $(".custom-right-menu-icon").click(function(){
     $('#custom-right-menu').toggleClass('custom-right-menu-hide')
+    console.log("Teeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeessssssssssssssssssssssssssssstttttt");
+    
   });
   
   $(".custom-left-menu-icon").click(function(){

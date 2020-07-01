@@ -1,24 +1,26 @@
 // import DesktopTest from "./components/DesktopTest.vue";
-import Home from "./components/Home.vue"
+// import Home from "./components/Home.vue"
+import Desktop from './desktop/desktop.js';
+
 
 frappe.views.pageview.show =  function(name) {
   if(!name) {
     name = (frappe.boot ? frappe.boot.home_page : window.page_name);
 
-    if(name === "desktop") {
-      if(!frappe.pages.desktop) {
-        let page = frappe.container.add_page('desktop');
+    if(name === "workspace") {
+      if(!frappe.workspace) {
+        let page = frappe.container.add_page('workspace');
         let container = $('<div class="container custom-main-container"></div>').appendTo(page);
         container = $('<div></div>').appendTo(container);
 
-        new Vue({
-          el: container[0],
-          render: h => h(Home)
-        });
+        frappe.workspace = new Desktop({
+          wrapper: container
+        })
       }
 
-      frappe.container.change_to('desktop');
-      frappe.utils.set_title(__('Home'));
+      frappe.container.change_to('workspace');
+      frappe.workspace.route();
+      frappe.utils.set_title(__('Desk'));
       return;
     }
   }

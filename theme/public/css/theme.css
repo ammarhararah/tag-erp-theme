@@ -367,6 +367,28 @@ ul.custom-right-navbar li a:active ,
   font-family: 'Neo Sans Arabic Regular';
   font-size: 10px;
 }
+
+/* Desk Body  */
+.custom-desk-body {
+  padding-left: 15px !important;
+}
+.custom-desk-sidebar {
+  display: none !important;
+}
+.modal-backdrop {
+  height: 100vh !important ;
+}
+/* widget-group */
+.custom-widget-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 0 !important;
+}
+.custom-widget-group-body {
+
+}
+
 @media(max-width:767px){
   #page-desktop {
     margin-top: 0px;
@@ -435,6 +457,7 @@ ul.custom-right-navbar li a:active ,
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    padding-top: 0;
   }
   .custom-main-section {
     margin-top: 50px;
