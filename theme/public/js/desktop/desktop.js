@@ -2,7 +2,7 @@ export default class Desktop {
 	constructor({ wrapper }) {
 		this.wrapper = wrapper;
 		this.pages = {};
-		this.sidebar_items = {};Desktop
+		this.sidebar_items = {};
 		this.sidebar_categories = [
 			"Modules",
 			"Domains",
@@ -97,6 +97,11 @@ export default class Desktop {
 	}
 }
 
+
+
+import ListComponent from '../components/MainList.vue'
+
+
 class DesktopPage {
 	constructor({ container, page_name }) {
 		frappe.desk_page = this;
@@ -145,11 +150,10 @@ class DesktopPage {
 		this.page.addClass('allow-customization');
 	}
 
-	// make_custom_top_row(){
-	// 	this.custom-top-row = $(`<h1>${__('Customize Mai')}</h1>`);
-	// 	this.custom-top-row.appendTo(this.page);
-		
-	// }
+	make_top_row(){
+		this.customize_top_text = $(`<h1>${__('')}</h1>`);
+		this.customize_top_text.appendTo(this.page);
+	}
 
 	make() {
 		this.page = $(`<div class="desk-page" data-page-name=${this.page_name}></div>`);
@@ -167,6 +171,19 @@ class DesktopPage {
 		});
 	}
 
+	setup_list_wrapper() {
+		this.$frappe_list = $('<div class="frappe-list">').appendTo(this.container);
+	}
+
+	list() {
+		this.$list_wrapper = this.container.find('.frappe-list');
+
+		new Vue({
+			el: this.$list_wrapper[0],
+			render: h => h(ListComponent)
+		});
+	}
+
 	refresh() {
 		this.page.empty();
 		this.allow_customization = this.data.allow_customization || false;
@@ -175,8 +192,8 @@ class DesktopPage {
 			this.allow_customization = false;
 		}
 
-		this.allow_customization && this.make_customization_link() ;
-		// this.make_custom_top_row();
+		this.allow_customization && this.make_customization_link();
+		this.make_top_row();
 		this.data.onboarding && this.data.onboarding.items.length && this.make_onboarding();
 		this.make_charts().then(() => {
 			this.make_shortcuts();
@@ -184,9 +201,12 @@ class DesktopPage {
 
 			if (this.allow_customization) {
 				// Move the widget group up to align with labels if customization is allowed
-				$('.desk-page .widget-group:visible:first').css('margin-top', '-25px');
+				$('.desk-page .widget-group:visible:first').addClass("custom-widget-group")
 			}
 		});
+		this.setup_list_wrapper();
+		this.list();
+		
 	}
 
 	get_data() {
@@ -310,41 +330,5 @@ class DesktopPage {
 	}
 
 	make_cards() {
-		let cards = new frappe.widget.WidgetGroup({
-			title: this.data.cards.label || __(`Reports & Masters`),
-			container: this.page,
-			type: "links",
-			columns: 3,
-			options: {
-				allow_sorting: this.allow_customization,
-				allow_create: false,
-				allow_delete: false,
-				allow_hiding: this.allow_customization,
-				allow_edit: false,
-			},
-			widgets: this.data.cards.items
-		});
-
-		this.sections["cards"] = cards;
-
-		const legend = [
-			{
-				color: "blue",
-				description: __("Important")
-			},
-			{
-				color: "orange",
-				description: __("No Records Created")
-			}
-		].map(item => {
-			return `<div class="legend-item small text-muted justify-flex-start">
-				<span class="indicator ${item.color}"></span>
-				<span class="link-content ellipsis" draggable="false">${item.description}</span>
-			</div>`;
-		});
-
-		$(`<div class="legend">
-			${legend.join("\n")}
-		</div>`).insertAfter(cards.body);
 	}
 }

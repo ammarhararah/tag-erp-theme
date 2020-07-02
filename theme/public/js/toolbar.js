@@ -1,5 +1,25 @@
 frappe.ui.toolbar.Toolbar = frappe.ui.toolbar.Toolbar.extend({
+	init: function() {
+		$('header').append(frappe.render_template("navbar", {
+			avatar: frappe.avatar(frappe.session.user)
+		}));
+		$('.dropdown-toggle').dropdown();
 
+		let awesome_bar = new frappe.search.AwesomeBar();
+		awesome_bar.setup("#navbar-search");
+		awesome_bar.setup("#modal-search");
+
+		this.setup_notifications();
+		this.make();
+
+		$(".custom-right-menu-icon").click(function(){
+			$('#custom-right-menu').toggleClass('custom-right-menu-hide')			
+		});
+		
+		$(".custom-left-menu-icon").click(function(){
+			$('#custom-left-menu').toggleClass('custom-left-menu-hide')
+		}); 
+	},
   setup_sidebar: function(){
     var header = $('header');
     var layout_side_section = $('.layout-side-section');

@@ -380,15 +380,61 @@ ul.custom-right-navbar li a:active ,
 }
 /* widget-group */
 .custom-widget-group {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
   margin-top: 0 !important;
+  border: 1px solid rgb(255, 255, 255);
+  padding-top: 20px;
+  display: flex;
+  border-radius: 5px;
 }
 .custom-widget-group-body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.custom-widget-group-head {
+  min-width: 150px;
+  justify-content: center !important;
+}
+.custom-widget-group-title {
+  font-size: 13px !important;
+  color: #2A1649 !important;
+  font-family: 'Neo Sans Arabic Bold'!important;
+}
+.custom-shortcut-widget-box {
+  min-width: 190px;
+  margin-bottom: 15px;
+  padding: 1px 15px;
+  border: 0;
+  background-color: #FFF;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  min-height: 32px;
+}
+.custom-shortcut-widget-box .widget-title {
+  font-size: 13px !important;
+  font-family: 'Neo Sans Arabic Medium';
+}
+.custom-shortcut-widget-box .widget-head {
+  justify-content: center;
+}
+/* List View */
+.custom-list-container {
+  background-color: #FFF;
+  padding: 10px 14px;
+  border-radius: 5px;
+}
+.custom-list-container .list-row-head {
+  background: none !important;
+}
+.custom-list-container h1.custom-list-title {
+  font-size: 14px;
+  color: #2A1649;
+  font-family: 'Neo Sans Arabic Bold';
 
 }
-
 @media(max-width:767px){
   #page-desktop {
     margin-top: 0px;
