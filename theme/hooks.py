@@ -27,7 +27,10 @@ app_include_js = [
   "/assets/theme/js/pageview.js",
   "/assets/theme/js/notification.js",
   "/assets/theme/js/chat.js",
-  "/assets/theme/js/custom.js"
+  "/assets/theme/js/custom.js",
+  "/assets/theme/js/widgets/widget_group.js",
+  "/assets/theme/js/widgets/shortcut_widget.js",
+  "/assets/theme/js/desktop/desktop.js"
 ]
 
 # include js, css files in header of web template
