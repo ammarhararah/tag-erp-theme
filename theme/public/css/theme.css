@@ -25,6 +25,7 @@
 }
 .custom-main-navbar {
   background-color: #EBEBEB;
+  z-index: auto;
 }
 @media (min-width: 768px){
   .navbar-right {
