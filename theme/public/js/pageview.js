@@ -1,6 +1,6 @@
 // import DesktopTest from "./components/DesktopTest.vue";
 // import Home from "./components/Home.vue"
-// import Desktop from './desktop/desktop.js';
+import Desktop from './desktop/desktop.js';
 
 
 frappe.views.pageview.show =  function(name) {
