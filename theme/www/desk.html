@@ -34,7 +34,8 @@
 	<div class="main-section custom-main-section">
 		<div id="custom-left-menu" class="custom-left-sidemenu custom-left-menu-hide">
 			<div class="logo">
-				<img src="logo.png" alt="logo"/>
+				<a href="/desk"><img src="logo.png" alt="logo"/></a>
+				
 			</div>
 			<div class="custom-nav-ul">
 				<ul class="nav custom-nav"></ul>
@@ -81,31 +82,35 @@
 				<p class="username">User Name</p>
 				<p class="user-position">SCO</p>
 				<div class="user-task-section">
-					<a href="#" class="custom-user-item">
+					<a href="#List/Note/" class="custom-user-item">
 						<span class="icon-Group-223"><span class="path1"></span><span class="path2"></span></span>
 						<p>Notes</p>
 					</a>
-					<a href="#" class="custom-user-item">
+					<a href="#List/ToDo" class="custom-user-item">
 						<span class="icon-Group-83"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span></span>
 						<p>To do</p>
 					</a>
-					<a href="#" class="custom-user-item">
+					<a href="#List/Task/" class="custom-user-item">
 						<span class="icon-Group-82"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
 						<p>Task</p>
 					</a>
 				</div>
 			</div>
 			<div class="settings-section">
-				<p>Settings</p>
+				<p>{{_('Settings')}}</p>
 				<ul class="nav">
-					<li><a href="#">My profile </a></li>
-					<li><a href="#">My Setting</a></li>
-					<li><a href="#">Session Defaults</a></li>
-					<li><a href="#">Reload</a></li>
-					<li><a href="#">View website</a></li>
-					<li><a href="#">Toggle full width</a></li>
-					<li><a href="#">Background Jobs</a></li>
+					<li><a href="#user-profile">{{_('My profile')}}</a></li>
+					<li><a href="#Form/User/{{ frappe.session.user }}">{{_('My Setting')}}</a></li>
+					<li><a href="#" onclick="return frappe.ui.toolbar.setup_session_defaults();"	>{{_('Session Defaults')}}</a></li>
+					<li><a href="" onclick="return frappe.ui.toolbar.clear_cache();">{{_('Reload')}}</a></li>
+					<li><a href="/index" target="_blank" rel="noopener noreferrer">{{_('View website')}}</a></li>
+					<li class="navbar-toggle-full-width">
+						<a href="#" onclick="return false"{{_('Toggle full width')}}</a></li>
+					<li><a href="#background_jobs">{{_('Background Jobs')}}</a></li>
+					<li><a href="#" onclick="return frappe.app.logout();">
+						{{_("Logout") }}</a></li>
 				</ul>
+				
 			</div>
 			<div class="help">
 				<a href="#" data-toggle="tooltip" data-placement="bottom" title="Help">
