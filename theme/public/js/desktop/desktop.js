@@ -58,23 +58,7 @@ export default class Desktop {
 	}
 
 	make_sidebar() {
-		let allowed_modules = frappe.boot.allowed_modules;
-		if(allowed_modules){
-			$(".custom-nav-ul ul.custom-nav").empty();
-			allowed_modules.forEach(module => {
-				if(module.type === "module"){
-					let snake_case = module.label.toLowerCase().split(' ').join('-');
-					$(".custom-nav-ul ul.custom-nav").append(`
-					<li>
-					<a href="#workspace/${module.label}" class="custom-nav-link">
-						<span class="icon-${snake_case}-module"></span><br>
-						${module.label}
-					</a>
-				</li>
-					`)
-				}
-			});
-		}
+		
 	}
 
 	show_page(page) {

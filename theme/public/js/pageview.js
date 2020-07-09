@@ -35,4 +35,6 @@ frappe.views.pageview.show =  function(name) {
       frappe.container.change_to(name);
     });
   });
+
+  
 }
