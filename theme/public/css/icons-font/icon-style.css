@@ -110,15 +110,18 @@
   margin-left: -1em;
   color: rgb(255, 255, 255);
 }
-.icon-Icon-awesome-building:before {
+.icon-Icon-awesome-building:before,
+.icon-assets-module:before {
   content: "\e913";
   color: #ebebeb;
 }
-.icon-Icon-awesome-dropbox:before {
+.icon-Icon-awesome-dropbox:before,
+.icon-stock-module:before {
   content: "\e914";
   color: #ebebeb;
 }
-.icon-Icon-awesome-money-bill:before {
+.icon-Icon-awesome-money-bill:before,
+.icon-loan-management-module:before {
   content: "\e915";
   color: #ebebeb;
 }
@@ -130,11 +133,13 @@
   content: "\e917";
   color: #ebebeb;
 }
-.icon-Icon-awesome-user-friends:before {
+.icon-Icon-awesome-user-friends:before,
+.icon-human-resources-module:before {
   content: "\e918";
   color: #ebebeb;
 }
-.icon-Icon-ionic-ios-help-buoy:before {
+.icon-Icon-ionic-ios-help-buoy:before,
+.icon-support-module:before {
   content: "\e91e";
   color: #ebebeb;
 }
@@ -142,19 +147,23 @@
   content: "\e91f";
   color: #fff;
 }
-.icon-Icon-ionic-md-star-outline:before {
+.icon-Icon-ionic-md-star-outline:before,
+.icon-quality-module:before{
   content: "\e920";
   color: #ebebeb;
 }
-.icon-Icon-ionic-md-wallet:before {
+.icon-Icon-ionic-md-wallet:before,
+.icon-buying-module:before {
   content: "\e921";
   color: #ebebeb;
 }
-.icon-Icon-material-confirmation-number:before {
+.icon-Icon-material-confirmation-number:before,
+.icon-crm-module:before {
   content: "\e922";
   color: #ebebeb;
 }
-.icon-Icon-material-monetization-on:before {
+.icon-Icon-material-monetization-on:before,
+.icon-accounting-module:before {
   content: "\e924";
   color: #ebebeb;
 }
@@ -170,11 +179,21 @@
   content: "\e928";
   color: #ebebeb;
 }
-.icon-Icon-open-browser:before {
+.icon-Icon-open-browser:before,
+.icon-selling-module:before,
+.icon-website-module:before,
+.icon-getting-started-module:before,
+.icon-integrations-module:before,
+.icon-customization-module:before,
+.icon-users-and-permissions-module:before,
+.icon-automation-module:before,
+.icon-tools-module:before,
+.icon-settings-module:before{
   content: "\e929";
   color: #ebebeb;
 }
-.icon-Icon-open-project:before {
+.icon-Icon-open-project:before,
+.icon-projects-module:before {
   content: "\e92a";
   color: #ebebeb;
 }
