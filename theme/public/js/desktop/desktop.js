@@ -3,6 +3,7 @@ export default class Desktop {
 		this.wrapper = wrapper;
 		this.pages = {};
 		this.sidebar_items = {};
+		this.mobile_sidebar_items = {};
 		this.sidebar_categories = [
 			"Modules",
 			"Domains",
@@ -26,14 +27,25 @@ export default class Desktop {
 	}
 
 	make_container() {
-		this.container = $(`<div class="desk-container row">
-				<div class="desk-sidebar custom-desk-sidebar"></div>
-				<div class="desk-body custom-desk-body"></div>
+		this.container = $(`
+			<div class="desk-container row">
+				<div class="desk-sidebar"></div>
+				<div class="desk-body">
+					<div class="page-switcher">
+						<div class="current-title"></div>
+						<i class="fa fa-chevron-down text-muted"></i>
+					</div>
+					<div class="mobile-list">
+					</div>
+				</div>
 			</div>`);
 
 		this.container.appendTo(this.wrapper);
 		this.sidebar = this.container.find(".desk-sidebar");
 		this.body = this.container.find(".desk-body");
+		this.current_title = this.container.find(".current-title");
+		this.mobile_list = this.container.find(".mobile-list");
+		this.page_switcher = this.container.find(".page-switcher");
 	}
 
 	fetch_desktop_settings() {
@@ -58,7 +70,53 @@ export default class Desktop {
 	}
 
 	make_sidebar() {
-		
+		const get_sidebar_item = function(item) {
+			return $(`<a href="${"desk#workspace/" +
+				item.name}" class="sidebar-item ${
+				item.selected ? "selected" : ""
+			}">
+					<span>${item.label || item.name}</span>
+				</div>`);
+		};
+
+		const make_sidebar_category_item = item => {
+			if (item.name == this.get_page_to_show()) {
+				item.selected = true;
+				this.current_page = item.name;
+			}
+			let $item = get_sidebar_item(item);
+			let $mobile_item = $item.clone();
+			
+			$item.appendTo(this.sidebar);
+			this.sidebar_items[item.name] = $item;
+
+			$mobile_item.appendTo(this.mobile_list);
+			this.mobile_sidebar_items[item.name] = $mobile_item;
+		};
+
+		const make_category_title = name => {
+			// DO NOT REMOVE: Comment to load translation
+			// __("Modules") __("Domains") __("Places") __("Administration")
+			let $title = $(
+				`<div class="sidebar-group-title h6 uppercase">${__(name)}</div>`
+			);
+			$title.appendTo(this.sidebar);
+			$title.clone().appendTo(this.mobile_list);
+		};
+
+		this.sidebar_categories.forEach(category => {
+			if (this.desktop_settings.hasOwnProperty(category)) {
+				make_category_title(category);
+				this.desktop_settings[category].forEach(item => {
+					make_sidebar_category_item(item);
+				});
+			}
+		});
+		if (frappe.is_mobile) {
+			this.page_switcher.on('click', () => {
+				this.mobile_list.toggle();
+			});
+		}
 	}
 
 	show_page(page) {
@@ -68,9 +126,14 @@ export default class Desktop {
 
 		if (this.sidebar_items && this.sidebar_items[this.current_page]) {
 			this.sidebar_items[this.current_page].removeClass("selected");
+			this.mobile_sidebar_items[this.current_page].removeClass("selected");
+			
 			this.sidebar_items[page].addClass("selected");
+			this.mobile_sidebar_items[page].addClass("selected");
 		}
 		this.current_page = page;
+		this.mobile_list.hide();
+		this.current_title.empty().append(this.current_page);
 		localStorage.current_desk_page = page;
 		this.pages[page] ? this.pages[page].show() : this.make_page(page);
 	}
@@ -78,11 +141,13 @@ export default class Desktop {
 	get_page_to_show() {
 		const default_page = this.desktop_settings
 			? this.desktop_settings["Modules"][0].name
-			: "Website";
+			: frappe.boot.allowed_workspaces[0].name;
+
 		let page =
 			frappe.get_route()[1] ||
 			localStorage.current_desk_page ||
 			default_page;
+
 		return page;
 	}
 
@@ -96,11 +161,6 @@ export default class Desktop {
 		return $page;
 	}
 }
-
-
-
-// import ListComponent from '../components/MainList.vue'
-
 
 class DesktopPage {
 	constructor({ container, page_name }) {
@@ -150,11 +210,6 @@ class DesktopPage {
 		this.page.addClass('allow-customization');
 	}
 
-	make_top_row(){
-		this.customize_top_text = $(`<h1>${__('')}</h1>`);
-		this.customize_top_text.appendTo(this.page);
-	}
-
 	make() {
 		this.page = $(`<div class="desk-page" data-page-name=${this.page_name}></div>`);
 		this.page.appendTo(this.container);
@@ -171,22 +226,6 @@ class DesktopPage {
 		});
 	}
 
-	setup_list_wrapper() {
-		$(`<div class="custom-list-container">`).appendTo(this.container);
-		this.$frappe_list = $('<div class="frappe-list">').appendTo($('.custom-list-container'))
-		$('<div class="result">').appendTo(this.$frappe_list);
-		// this.$frappe_list = $('<div class="frappe-list">').appendTo(this.container);
-	}
-
-	list() {
-		// this.$list_wrapper = this.container.find('.frappe-list');
-
-		// new Vue({
-		// 	el: this.$list_wrapper[0],
-		// 	render: h => h(ListComponent)
-		// });
-	}
-
 	refresh() {
 		this.page.empty();
 		this.allow_customization = this.data.allow_customization || false;
@@ -196,7 +235,6 @@ class DesktopPage {
 		}
 
 		this.allow_customization && this.make_customization_link();
-		this.make_top_row();
 		this.data.onboarding && this.data.onboarding.items.length && this.make_onboarding();
 		this.make_charts().then(() => {
 			this.make_shortcuts();
@@ -204,12 +242,9 @@ class DesktopPage {
 
 			if (this.allow_customization) {
 				// Move the widget group up to align with labels if customization is allowed
-				$('.desk-page .widget-group:visible:first').addClass("custom-widget-group")
+				$('.desk-page .widget-group:visible:first').css('margin-top', '-25px');
 			}
 		});
-		this.setup_list_wrapper();
-		this.list();
-		
 	}
 
 	get_data() {
@@ -273,7 +308,6 @@ class DesktopPage {
 			steps: this.data.onboarding.items,
 			success: this.data.onboarding.success,
 			docs_url: this.data.onboarding.docs_url,
-			user_can_dismiss: this.data.onboarding.user_can_dismiss,
 			widget_type: 'onboarding',
 			container: this.page,
 			options: {
@@ -333,5 +367,41 @@ class DesktopPage {
 	}
 
 	make_cards() {
+		let cards = new frappe.widget.WidgetGroup({
+			title: this.data.cards.label || __(`Reports & Masters`),
+			container: this.page,
+			type: "links",
+			columns: 3,
+			options: {
+				allow_sorting: this.allow_customization,
+				allow_create: false,
+				allow_delete: false,
+				allow_hiding: this.allow_customization,
+				allow_edit: false,
+			},
+			widgets: this.data.cards.items
+		});
+
+		this.sections["cards"] = cards;
+
+		const legend = [
+			{
+				color: "blue",
+				description: __("Important")
+			},
+			{
+				color: "orange",
+				description: __("No Records Created")
+			}
+		].map(item => {
+			return `<div class="legend-item small text-muted justify-flex-start">
+				<span class="indicator ${item.color}"></span>
+				<span class="link-content ellipsis" draggable="false">${item.description}</span>
+			</div>`;
+		});
+
+		$(`<div class="legend">
+			${legend.join("\n")}
+		</div>`).insertAfter(cards.body);
 	}
 }
