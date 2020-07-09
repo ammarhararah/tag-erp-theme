@@ -21,7 +21,7 @@ frappe.ui.Page = frappe.ui.Page.extend({
 		}
 
 		this.setup_page();
-	},
+	}
 	
 	
 });

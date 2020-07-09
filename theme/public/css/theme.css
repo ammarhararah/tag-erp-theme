@@ -83,7 +83,7 @@ input[type="checkbox"]:before {
 }
 .custom-main-navbar {
   background-color: #EBEBEB;
-  z-index: 201;
+  z-index: 1040;
 }
 .custom-mid-section .page-head {
   z-index: 200;
