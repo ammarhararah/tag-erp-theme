@@ -99,7 +99,7 @@ export default class Desktop {
 
 
 
-import ListComponent from '../components/MainList.vue'
+// import ListComponent from '../components/MainList.vue'
 
 
 class DesktopPage {
@@ -172,16 +172,19 @@ class DesktopPage {
 	}
 
 	setup_list_wrapper() {
-		this.$frappe_list = $('<div class="frappe-list">').appendTo(this.container);
+		$(`<div class="custom-list-container">`).appendTo(this.container);
+		this.$frappe_list = $('<div class="frappe-list">').appendTo($('.custom-list-container'))
+		$('<div class="result">').appendTo(this.$frappe_list);
+		// this.$frappe_list = $('<div class="frappe-list">').appendTo(this.container);
 	}
 
 	list() {
-		this.$list_wrapper = this.container.find('.frappe-list');
+		// this.$list_wrapper = this.container.find('.frappe-list');
 
-		new Vue({
-			el: this.$list_wrapper[0],
-			render: h => h(ListComponent)
-		});
+		// new Vue({
+		// 	el: this.$list_wrapper[0],
+		// 	render: h => h(ListComponent)
+		// });
 	}
 
 	refresh() {
