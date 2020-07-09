@@ -2,6 +2,39 @@
 // import Home from "./components/Home.vue"
 import Desktop from './desktop/desktop.js';
 
+frappe.ui.form.Sidebar.prototype.make = function(){
+  var sidebar_content = frappe.render_template("form_sidebar", {doctype: this.frm.doctype, frm:this.frm});
+
+  this.sidebar = $('<div class="form-sidebar overlay-sidebar hidden-xs hidden-sm custom-left-side-bar"></div>')
+    .html(sidebar_content)
+    .appendTo(this.page.sidebar.empty());
+
+  this.comments = this.sidebar.find(".sidebar-comments");
+  this.user_actions = this.sidebar.find(".user-actions");
+  this.image_section = this.sidebar.find(".sidebar-image-section");
+  this.image_wrapper = this.image_section.find('.sidebar-image-wrapper');
+  this.make_assignments();
+  this.make_attachments();
+  this.make_review();
+  this.make_shared();
+  this.make_viewers();
+
+  this.make_tags();
+  this.make_like();
+  if (frappe.boot.user.document_follow_notify) {
+    this.make_follow();
+  }
+
+  this.bind_events();
+  this.setup_keyboard_shortcuts();
+  this.show_auto_repeat_status();
+  frappe.ui.form.setup_user_image_event(this.frm);
+
+  this.refresh();
+
+} 
+
+
 frappe.views.ListView.prototype.set_primary_action = function(){
   if (this.can_create) {
     this.page.set_primary_action(__('+'), () => {
