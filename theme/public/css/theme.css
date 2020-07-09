@@ -789,3 +789,23 @@ a.dropdown-toggle:hover {
   flex: 1 1 20%;
   margin:15px;
 }
+
+.chart-widget-body{
+  display: flex;
+  flex-direction: row;
+}
+
+.chart-widget-body .info-widget-container{
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: inherit;
+
+}
+.chart-widget-body .info-widget-container .info-widget{
+  flex:1 1 30%;
+}
+
+.chart-widget-body .info-widget-container .info-widget:last-child{
+  margin-bottom: 0;
+}

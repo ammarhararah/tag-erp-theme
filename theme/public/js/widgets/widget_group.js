@@ -7,7 +7,7 @@ frappe.widget.WidgetGroup.prototype.make_container = function () {
 						<div class="widget-group-control h6 text-muted"></div>
 					</div>
 					<div class="row chart-widget-body">
-						<div class="col-sm-4">
+						<div class="col-sm-4 info-widget-container">
 							<div class="row info-widget">
 								<div class="info-title">Accounting</div>
 								<div class="row">
