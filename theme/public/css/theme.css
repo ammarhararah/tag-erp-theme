@@ -928,3 +928,8 @@ a.dropdown-toggle:hover {
     margin-bottom: 15px;
     flex:1 1 50%;
 }
+
+.widget.dashboard-widget-box{
+  /* flex: 1 1 45%; */
+  /* margin-right: 2.5%; */
+}
