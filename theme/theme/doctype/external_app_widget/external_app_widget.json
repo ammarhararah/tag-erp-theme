@@ -1,0 +1,68 @@
+{
+ "actions": [],
+ "autoname": "field:app_title",
+ "creation": "2020-07-09 17:21:34.901708",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "app_title",
+  "app_icon",
+  "app_link"
+ ],
+ "fields": [
+  {
+   "fieldname": "app_title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "App Title",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "app_icon",
+   "fieldtype": "Attach Image",
+   "label": "App Icon",
+   "reqd": 1
+  },
+  {
+   "fieldname": "app_link",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "App Link",
+   "reqd": 1
+  }
+ ],
+ "links": [],
+ "modified": "2020-07-11 14:44:16.634695",
+ "modified_by": "Administrator",
+ "module": "Theme",
+ "name": "External App Widget",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
