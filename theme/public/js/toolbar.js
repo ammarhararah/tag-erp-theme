@@ -23,17 +23,18 @@ frappe.ui.toolbar.Toolbar = frappe.ui.toolbar.Toolbar.extend({
 		}); 
 	},
 	setup_module_sidebar:function(){
-		let allowed_modules = frappe.boot.allowed_modules;
+		let allowed_modules = frappe.boot.allowed_workspaces;
 		if(allowed_modules){
 			$(".custom-nav-ul ul.custom-nav").empty();
 			allowed_modules.forEach(module => {
-				if(module.type === "module"){
-					let snake_case = module.label.toLowerCase().split(' ').join('-');
+				console.log(module)
+				if(module.category === "Modules"){
+					let snake_case = module.name.toLowerCase().split(' ').join('-');
 					$(".custom-nav-ul ul.custom-nav").append(`
 					<li>
-					<a href="#workspace/${module.label}" class="custom-nav-link">
+					<a href="#workspace/${module.name}" class="custom-nav-link">
 						<span class="icon-${snake_case}-module"></span><br>
-						${module.label}
+						${module.name}
 					</a>
 				</li>
 					`)
