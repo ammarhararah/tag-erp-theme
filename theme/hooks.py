@@ -107,13 +107,7 @@ app_include_js = [
 # ---------------
 
 # scheduler_events = {
-# 	"all": [
-# 		"theme.tasks.all"
-# 	],
-# 	"daily": [
-# 		"theme.tasks.daily"
-# 	],
-# 	"hourly": [
+# 	"all": [WidgetGroup
 # 		"theme.tasks.hourly"
 # 	],
 # 	"weekly": [

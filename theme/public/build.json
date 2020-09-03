@@ -4,6 +4,7 @@
   "public/js/ui/navbar.html",
   "public/js/ui/page.html",
   "public/js/toolbar.js",
-  "public/js/pageview.js"
+  "public/js/pageview.js",
+  "public/js/widgets/number_card_widget.js"
 ]
 }

@@ -1052,7 +1052,6 @@ a.dropdown-toggle:hover {
   }
 }
 
-.widget.dashboard-widget-box{}
   /* flex: 1 1 45%; */
   /* margin-right: 2.5%; */
 @media only screen and (min-width: 426px) and (max-width: 1208px) {
@@ -1066,4 +1065,16 @@ a.dropdown-toggle:hover {
     width: 170px;
     margin-right: 15px;
   }
+}
+
+
+.widget.number-widget-box {
+  cursor: pointer;
+  height: 120px;
+  padding: 10px;
+  margin-bottom: 23px; 
+}
+
+.widget.number-widget-box .widget-body .widget-content .number {
+  font-size: 22px;
 }

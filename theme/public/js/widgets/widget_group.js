@@ -1,3 +1,4 @@
+
 frappe.widget.WidgetGroup.prototype.make_container = function () {
 	let widget_area;
 	if(this.type && this.type === "chart"){
@@ -7,7 +8,7 @@ frappe.widget.WidgetGroup.prototype.make_container = function () {
 						<div class="widget-group-control h6 text-muted"></div>
 					</div>
 					<div class="chart-widget-body">
-						<div class="info-widget-container">
+						<div class="info-widget-container" id="testWidget">
 							<div class="info-widget">
 								<div class="info-title">Accounting</div>
 								<div class="info-details-row">
@@ -35,7 +36,8 @@ frappe.widget.WidgetGroup.prototype.make_container = function () {
 							</div>
 						</div>
 					</div>
-				</div>`);
+				</div>
+				`);
 	}else{
 		widget_area = $(`<div class="widget-group custom-widget-group">
 					<div class="widget-group-head custom-widget-group-head">
