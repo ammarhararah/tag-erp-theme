@@ -201,3 +201,12 @@
   content: "\e931";
   color: #ebebeb;
 }
+.icon-home-module:before {
+  content: "\e90e";
+  color: #ebebeb;
+}
+.icon-payroll-module:before {
+  content: "\e93f";
+  color: #ebebeb;
+
+}
