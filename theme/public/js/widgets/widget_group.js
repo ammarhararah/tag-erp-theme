@@ -76,15 +76,4 @@ frappe.widget.WidgetGroup.prototype.make_container = function () {
 			$(this).appendTo(numberCardContainer);
 			$(this).removeClass('display-none');
 		});
-
-
-		$(".custom-widget-group").each(function() {
-			var len = $(this).find('.widget').length;
-			if(len){
-				$(this).removeClass('display-none');
-			}else{
-				$(this).addClass('display-none');
-			}
-		});
-		
 	}
