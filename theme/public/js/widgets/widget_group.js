@@ -1,4 +1,3 @@
-
 frappe.widget.WidgetGroup.prototype.make_container = function () {
 	let widget_area;
 	if(this.type && this.type === "chart"){
@@ -8,7 +7,7 @@ frappe.widget.WidgetGroup.prototype.make_container = function () {
 						<div class="widget-group-control h6 text-muted"></div>
 					</div>
 					<div class="chart-widget-body">
-						<div class="info-widget-container" id="testWidget">
+						<div class="info-widget-container" id="numberCardContainer">
 							<div class="info-widget">
 								<div class="info-title">Accounting</div>
 								<div class="info-details-row">
@@ -70,5 +69,22 @@ frappe.widget.WidgetGroup.prototype.make_container = function () {
 						ext_apps_container.append(app_html);
 					});
 			}
-		})
-}
+		});
+
+		const numberCardContainer = $('#numberCardContainer');
+		$('.number-widget-box').each(function () {
+			$(this).appendTo(numberCardContainer);
+			$(this).removeClass('display-none');
+		});
+
+
+		$(".custom-widget-group").each(function() {
+			var len = $(this).find('.widget').length;
+			if(len){
+				$(this).removeClass('display-none');
+			}else{
+				$(this).addClass('display-none');
+			}
+		});
+		
+	}
