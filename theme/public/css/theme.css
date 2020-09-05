@@ -470,6 +470,10 @@ ul.custom-right-navbar li a:active ,
   display: flex;
   border-radius: 5px;
 }
+.widget-group .grid-col-3{
+  align-items: unset;
+}
+
 .custom-widget-group:first-child ,
 .custom-widget-group:last-child {
   margin-top: 0 !important;
@@ -739,10 +743,9 @@ a.dropdown-toggle:hover {
 }
 
 .widget.dashboard-widget-box{
-  width: 49%;
   background-color: white;
-  max-height: 300px;
 }
+
 .info-widget .row{
   margin-left:0;
   margin-right:0;
@@ -754,14 +757,7 @@ a.dropdown-toggle:hover {
 .desk-container .desk-sidebar{
   display: none;
 }
-
-.widget.links-widget-box{
-  height: unset;
-  background-color: white;
-  flex: 1 1 20%;
-  margin:15px;
-}
-
+dashboard-graph
 .chart-widget-body{
   display: flex;
   justify-content: space-between;
@@ -1104,4 +1100,8 @@ a.dropdown-toggle:hover {
 
 .display-none{
   display: none !important;
+}
+
+.dashboard-graph{
+  display: flex;
 }

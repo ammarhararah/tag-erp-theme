@@ -1,3 +1,4 @@
+		/*
 frappe.widget.WidgetGroup.prototype.make_container = function () {
 	let widget_area;
 	if(this.type && this.type === "chart"){
@@ -8,24 +9,7 @@ frappe.widget.WidgetGroup.prototype.make_container = function () {
 					</div>
 					<div class="chart-widget-body">
 						<div class="info-widget-container" id="numberCardContainer">
-							<div class="info-widget">
-								<div class="info-title">Accounting</div>
-								<div class="info-details-row">
-									<div class="info-details">2930 SAR</div>
-									<div class="info-notification green"></div>
-								</div>
-							</div>
-							<div class="info-widget">
-								<div class="info-title">Vacations balance </div>
-								<div class="info-details">034 Days</div>
-							</div>
-							<div class="info-widget">
-								<div class="info-title">Total Tasks</div>
-								<div class="info-details-row">
-									<div class="info-details">120 Task</div>
-									<div class="info-notification red"></div>
-								</div>
-							</div>
+							
 						</div>
 						<div class="widget-group-body custom-widget-group-body">
 						</div>
@@ -48,6 +32,7 @@ frappe.widget.WidgetGroup.prototype.make_container = function () {
 
 				</div>`);
 	}
+
 		this.widget_area = widget_area;
 		if (this.hidden) this.widget_area.hide();
 		this.title_area = widget_area.find(".widget-group-title");
@@ -56,24 +41,26 @@ frappe.widget.WidgetGroup.prototype.make_container = function () {
 		!this.widgets.length && this.widget_area.hide();
 		widget_area.appendTo(this.container);
 
-		frappe.db.get_list("External App Widget",
+		 frappe.db.get_list("External App Widget",
 		{"fields":["*"]}).then(function(result){
 			let ext_apps = result;
 			let ext_apps_container = $(".external-apps");
 			if (ext_apps_container){
 				ext_apps_container.empty();
 					ext_apps.forEach(app => {
-						let app_html = `<div class="external-app"><a href="${app.app_link}">
+						let app_html = `<div class="external-app-app"><a href="${app.app_link}">
 						<img src="${app.app_icon}" alt="${app.app_title}">
 						</a></div>`
 						ext_apps_container.append(app_html);
 					});
 			}
-		});
+		}); 
 
 		const numberCardContainer = $('#numberCardContainer');
 		$('.number-widget-box').each(function () {
 			$(this).appendTo(numberCardContainer);
 			$(this).removeClass('display-none');
 		});
+		
 	}
+*/
