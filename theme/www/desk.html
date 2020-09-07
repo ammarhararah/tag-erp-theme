@@ -73,6 +73,7 @@
 					</li>
 				</ul>
 			</div>
+
 			<div class="user-info">
 				<div class="user-img">
 					<div class="user-img-wrapper">
@@ -96,6 +97,11 @@
 					</a>
 				</div>
 			</div>
+
+			<!-- div for external app links -->
+			<div class="external-apps"></div>
+			<!--/ div for external app links -->
+
 			<div class="settings-section">
 				<p>{{_('Settings')}}</p>
 				<ul class="nav">
@@ -112,6 +118,7 @@
 				</ul>
 				
 			</div>
+
 			<div class="help">
 				<a href="#" data-toggle="tooltip" data-placement="bottom" title="Help">
 					<span class="icon-Path-9"></span>
@@ -135,6 +142,8 @@
 	frappe.csrf_token = "{{ csrf_token }}";
 
 	</script>
+
+	
 
 	{% for include in include_js %}
 	<script type="text/javascript" src="{{ include }}?ver={{ build_version }}"></script>

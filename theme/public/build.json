@@ -5,6 +5,7 @@
   "public/js/ui/page.html",
   "public/js/toolbar.js",
   "public/js/pageview.js",
-  "public/js/widgets/number_card_widget.js"
+  "public/js/widgets/number_card_widget.js",
+  "public/js/widgets/external_links.js"
 ]
 }
