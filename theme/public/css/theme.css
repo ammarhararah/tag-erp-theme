@@ -782,7 +782,7 @@ dashboard-graph
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: start;
 }
 .external-app{
   width: 35px;
@@ -797,6 +797,12 @@ dashboard-graph
   margin-bottom: 15px;
   flex:1 1 50%;
 }
+
+.external-app-link{
+  width: 4rem;
+  margin: 1%;
+}
+
 .chart-widget-body .info-widget-container .info-widget .info-details-row{
   display: flex;
   justify-content: space-between;
