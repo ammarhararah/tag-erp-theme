@@ -863,6 +863,36 @@ dashboard-graph
   width: 100% !important;
   height: 100% !important;
 }
+.btn-primary{
+  background-color: #ED8718 !important;
+  border-color: #ED8718 !important;
+  padding: 7px 10px !important;
+  border-radius: 25px !important;
+}
+a {
+  color: #e6e5e5  !important;
+}
+.standard-image {
+  width: 45px;
+  height: 45px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px !important;
+}
+.frappe-tag button.toggle-tag {
+  color: #2A1649 !important;
+}
+.kanban-dropdown li a,
+.reports-dropdown li a,
+.list-stats-dropdown li a,
+.custom-nav-breadcrumbs ul li a {
+  color: #2A1649 !important;
+}
+.navbar-right .awesomplete ul li a {
+  color: #2A1649 !important;
+}
 @media(max-width:767px){
   #page-desktop {
     margin-top: 0px;
