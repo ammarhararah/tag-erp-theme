@@ -1,0 +1,24 @@
+html[lang="ar"]{
+    direction: rtl;
+}
+
+html[lang="ar"] .ml-auto,html[lang="ar"] .mx-auto{
+    margin-left: unset!important;
+    margin-right: auto !important;
+}
+
+html[lang="ar"] .page-card-head{
+    text-align: right;
+}
+
+html[lang="ar"] #page-login .toggle-password{
+    left: 9px;
+    right: unset!important;
+}
+html[lang="ar"] #page-login .page-card .page-card-head .indicator::before {
+    margin: 0 6px 0.5px 6px;
+}
+
+html[lang="ar"] .footer-col-right{
+    text-align: left;
+}
