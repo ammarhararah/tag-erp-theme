@@ -27,7 +27,6 @@ frappe.ui.toolbar.Toolbar = frappe.ui.toolbar.Toolbar.extend({
 		if(allowed_modules){
 			$(".custom-nav-ul ul.custom-nav").empty();
 			allowed_modules.forEach(module => {
-				console.log(module)
 				if(module.category === "Modules"){
 					let snake_case = module.name.toLowerCase().split(' ').join('-');
 					$(".custom-nav-ul ul.custom-nav").append(`
