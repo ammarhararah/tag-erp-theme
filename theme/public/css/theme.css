@@ -39,8 +39,10 @@
   color: #170D26;
   font-family: 'Neo Sans Arabic Regular';
 }
+/* another place dowun */
 input[type="checkbox"]:before {
   font-size: 20px;
+  margin-top: -8px;
 }
 .custom-nav-breadcrumbs {
   position: absolute;
@@ -869,9 +871,9 @@ dashboard-graph
   padding: 7px 10px !important;
   border-radius: 25px !important;
 }
-a {
-  color: #e6e5e5  !important;
-}
+/* a {
+   color: #e6e5e5  !important; 
+}*/
 .standard-image {
   width: 45px;
   height: 45px;
@@ -996,8 +998,10 @@ a {
     margin: auto;
     margin-top: 120px;
   }
+/* another place up */
   input[type="checkbox"]:before {
     font-size: 14px;
+    margin-top: -8px;
   }
   .custom-mid-section .page-head {
     top: 50px;
